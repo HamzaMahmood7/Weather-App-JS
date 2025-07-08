@@ -5,6 +5,8 @@ const apiUrl =
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
+const card = document.querySelector(".card");
+const search = document.querySelector(".search");
 
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -13,6 +15,32 @@ async function checkWeather(city) {
     document.querySelector(".weather").style.display = "none";
   } else {
     let data = await response.json();
+    console.log(data);
+
+    const startHour = 6;
+    const endHour = 20;
+
+    // Get the timestamp of the city and convert it to readable local time
+    const unixTimeUTC = data.dt;
+    const timezoneOffsetSeconds = data.timezone;
+    const localUnixTime = unixTimeUTC + timezoneOffsetSeconds;
+    const localDate = new Date(localUnixTime * 1000);
+    // const timeStamp = date.toLocaleString("en-GB", {
+    //   hour: "2-digit",
+    //   minute: "2-digit",
+    //   second: "2-digit",
+    //   hour12: false,
+    // });
+    // console.log(timeStamp);
+
+    const currentHour = localDate.getUTCHours();
+
+    console.log(`cities local current hour ${currentHour}`);
+
+    // Depeding on the time of day, the background of the card will change
+    currentHour >= startHour && currentHour < endHour
+      ? (card.style.backgroundImage = 'url("images/day-time-bg.jpg")')
+      : (card.style.backgroundImage = 'url("images/night-sky-bg.jpg")');
 
     document.querySelector(".city").textContent = data.name;
     document.querySelector(".temp").textContent =

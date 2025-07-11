@@ -40,7 +40,7 @@ async function checkWeather(city) {
     // Depeding on the time of day, the background of the card will change
     currentHour >= startHour && currentHour < endHour
       ? (card.style.backgroundImage = 'url("images/day-time-bg.jpg")')
-      : (card.style.backgroundImage = 'url("images/night-sky-bg.jpg")');
+      : (card.style.backgroundImage = 'url("images/night-sky-bg.png")');
 
     document.querySelector(".city").textContent = data.name;
     document.querySelector(".temp").textContent =

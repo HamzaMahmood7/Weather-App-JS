@@ -18,6 +18,13 @@ body {
   text-align: center;
 }
 
+@media screen and (max-width: 400px) {
+  .title {
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
+}
+
 .card {
   width: 90%;
   max-width: 470px;
@@ -30,6 +37,12 @@ body {
   padding: 40px 35px;
   text-align: center;
   /* background-image: url("./images/day-time-bg.jpg"); */
+}
+
+@media screen and (max-width: 400px) {
+  .card {
+    padding: 20px 15px;
+  }
 }
 
 .search {
@@ -68,10 +81,29 @@ body {
   background: #d4f9f2;
 }
 
+@media screen and (max-width: 400px) {
+  .search input {
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .search button {
+    height: 50px;
+    width: 50px;
+  }
+}
 .weather-icon {
   width: 170px;
   margin-top: 30px;
   transition: transform 0.3s ease-out;
+}
+
+@media screen and (max-width: 400px) {
+  .weather-icon {
+    width: 120px;
+    margin-top: 20px;
+  }
 }
 
 .weather-icon:hover {
@@ -84,10 +116,25 @@ body {
   font-weight: 500;
 }
 
+@media screen and (max-width: 400px) {
+  .weather h1 {
+    font-size: 60px;
+    font-weight: 400;
+  }
+}
+
 .weather h2 {
   font-size: 45px;
   font-weight: 400;
   margin-top: -10px;
+}
+
+@media screen and (max-width: 400px) {
+  .weather h2 {
+    font-size: 30px;
+    font-weight: 300;
+    margin-top: -10px;
+  }
 }
 
 .details {
@@ -112,6 +159,13 @@ body {
 .wind {
   font-size: 28px;
   margin-top: -6px;
+}
+
+@media screen and (max-width: 400px) {
+  .humidity,
+  .wind {
+    font-size: 24px;
+  }
 }
 
 .weather {
